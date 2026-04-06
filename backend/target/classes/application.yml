@@ -15,13 +15,13 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/rfid_security?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Kolkata
     username: root
-    password: your_password_here          # ← Change this
+    password: root         # ← Change this
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   # ── JPA / Hibernate ────────────────────────
   jpa:
     hibernate:
-      ddl-auto: validate                  # use 'create' on first run, then switch to 'validate'
+      ddl-auto: update                  # use 'create' on first run, then switch to 'update'
     show-sql: false
     properties:
       hibernate:

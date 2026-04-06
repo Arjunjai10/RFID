@@ -21,13 +21,16 @@ public class AccessPoint {
     @Column(name = "reader_serial", length = 100)
     private String readerSerial;
 
+    @Builder.Default
     @Enumerated(EnumType.STRING)
     @Column(length = 20)
     private PointType type = PointType.ENTRY_EXIT;
 
+    @Builder.Default
     @Column(name = "access_level", length = 20)
     private String accessLevel = "ALL";
 
+    @Builder.Default
     @Enumerated(EnumType.STRING)
     @Column(length = 20)
     private PointStatus status = PointStatus.ONLINE;
@@ -35,9 +38,11 @@ public class AccessPoint {
     @Column(name = "ip_address", length = 45)
     private String ipAddress;
 
+    @Builder.Default
     @Column(name = "created_at")
     private LocalDateTime createdAt = LocalDateTime.now();
 
+    @Builder.Default
     @Column(name = "updated_at")
     private LocalDateTime updatedAt = LocalDateTime.now();
 

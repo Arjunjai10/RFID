@@ -17,12 +17,12 @@ public class DashboardController {
     private final AccessLogRepository accessLogRepository;
     private final AccessPointRepository accessPointRepository;
     private final AlertRepository alertRepository;
-    private final RfidTagRepository rfidTagRepository;
+
 
     @GetMapping("/stats")
     public ResponseEntity<Map<String, Object>> stats() {
         LocalDateTime today = LocalDateTime.now().withHour(0).withMinute(0).withSecond(0);
-        LocalDateTime now = LocalDateTime.now();
+
 
         long totalUsers   = userRepository.count();
         long activeUsers  = userRepository.countByStatus(User.UserStatus.ACTIVE);

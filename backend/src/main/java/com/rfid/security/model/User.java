@@ -28,13 +28,16 @@ public class User {
     @JoinColumn(name = "role_id", nullable = false)
     private Role role;
 
+    @Builder.Default
     @Enumerated(EnumType.STRING)
     @Column(length = 20)
     private UserStatus status = UserStatus.ACTIVE;
 
+    @Builder.Default
     @Column(name = "created_at")
     private LocalDateTime createdAt = LocalDateTime.now();
 
+    @Builder.Default
     @Column(name = "updated_at")
     private LocalDateTime updatedAt = LocalDateTime.now();
 

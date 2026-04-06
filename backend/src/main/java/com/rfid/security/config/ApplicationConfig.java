@@ -1,6 +1,6 @@
 package com.rfid.security.config;
 
-import com.rfid.security.security.JwtAuthFilter;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

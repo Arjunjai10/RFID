@@ -37,6 +37,7 @@ public class AccessLog {
     @Column(name = "reader_ip", length = 45)
     private String readerIp;
 
+    @Builder.Default
     @Column(nullable = false)
     private LocalDateTime timestamp = LocalDateTime.now();
 

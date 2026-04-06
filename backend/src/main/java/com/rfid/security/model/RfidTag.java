@@ -15,6 +15,7 @@ public class RfidTag {
     @Column(name = "tag_uid", nullable = false, unique = true, length = 50)
     private String tagUid;
 
+    @Builder.Default
     @Enumerated(EnumType.STRING)
     @Column(name = "tag_type", length = 30)
     private TagType tagType = TagType.MIFARE_CLASSIC;
@@ -23,6 +24,7 @@ public class RfidTag {
     @JoinColumn(name = "user_id")
     private User user;                    // null = unassigned
 
+    @Builder.Default
     @Enumerated(EnumType.STRING)
     @Column(length = 20)
     private TagStatus status = TagStatus.UNASSIGNED;
@@ -33,6 +35,7 @@ public class RfidTag {
     @Column(name = "last_used_at")
     private LocalDateTime lastUsedAt;
 
+    @Builder.Default
     @Column(name = "created_at")
     private LocalDateTime createdAt = LocalDateTime.now();
 

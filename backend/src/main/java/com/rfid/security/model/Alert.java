@@ -16,6 +16,7 @@ public class Alert {
     @Column(nullable = false, length = 30)
     private AlertType type;
 
+    @Builder.Default
     @Enumerated(EnumType.STRING)
     @Column(length = 10)
     private Severity severity = Severity.MEDIUM;
@@ -30,6 +31,7 @@ public class Alert {
     @Column(name = "tag_uid", length = 50)
     private String tagUid;
 
+    @Builder.Default
     @Column(nullable = false)
     private Boolean acknowledged = false;
 
@@ -40,6 +42,7 @@ public class Alert {
     @Column(name = "acknowledged_at")
     private LocalDateTime acknowledgedAt;
 
+    @Builder.Default
     @Column(name = "created_at")
     private LocalDateTime createdAt = LocalDateTime.now();
 
