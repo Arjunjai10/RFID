@@ -1,0 +1,50 @@
+# ──────────────────────────────────────────────
+#  RFID Security System — Spring Boot Config
+# ──────────────────────────────────────────────
+
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: rfid-security
+
+  # ── MySQL ──────────────────────────────────
+  datasource:
+    url: jdbc:mysql://localhost:3306/rfid_security?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Kolkata
+    username: root
+    password: your_password_here          # ← Change this
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  # ── JPA / Hibernate ────────────────────────
+  jpa:
+    hibernate:
+      ddl-auto: validate                  # use 'create' on first run, then switch to 'validate'
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+
+  # ── SQL Init ───────────────────────────────
+  sql:
+    init:
+      mode: never                         # set to 'always' on first run to execute schema.sql
+
+# ── JWT ────────────────────────────────────────
+jwt:
+  secret: rfidSecureOpsJwtSecretKey2026SuperLongAndSecure   # min 256 bits
+  expiration-ms: 86400000                 # 24 hours
+
+# ── CORS ───────────────────────────────────────
+cors:
+  allowed-origins: http://localhost:5173,http://localhost:3000
+
+# ── Logging ────────────────────────────────────
+logging:
+  level:
+    root: INFO
+    com.rfid: DEBUG
+    org.springframework.security: WARN
